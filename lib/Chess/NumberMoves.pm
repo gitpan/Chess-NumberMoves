@@ -25,7 +25,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 # Preloaded methods go here.
@@ -81,11 +81,10 @@ move numbers:
  [Black "Najdorf"]
  [Result "*"]
  
- 
  d4 Nf6
  c4 c5
  d5 d6
- Nc4 g6
+ Nc3 g6
  e4 Bg7
  Be2 O-O
  Nf3 e5
@@ -110,9 +109,10 @@ move numbers:
  Qh7 Kf7
  Qxg7+ Ke8 
  Qxf8+ Kxf8
- Rh8+ Rxd8
-
-=head2 THEN WE NUMBER THE FILE
+ Rh8+ Kf7
+ Rxd8
+ 
+ =head2 THEN WE NUMBER THE FILE
 
   use Chess::NumberMoves;
   my $numbered = Chess::NumberMoves::from_file('benko-najdorf.pgn');
@@ -130,7 +130,7 @@ move numbers:
  1.  d4 Nf6
  2.  c4 c5
  3.  d5 d6
- 4.  Nc4 g6
+ 4.  Nc3 g6
  5.  e4 Bg7
  6.  Be2 O-O
  7.  Nf3 e5
@@ -155,7 +155,8 @@ move numbers:
  26. Qh7 Kf7
  27. Qxg7+ Ke8 
  28. Qxf8+ Kxf8
- 29. Rh8+ Rxd8
+ 29. Rh8+ Kf7
+ 30. Rxd8
 
 =head1 ABSTRACT
 
@@ -190,7 +191,12 @@ None by default.
 
 =head1 SEE ALSO
 
-The perl-chess mailing list:
+=head2 A better way to do this:
+
+L<Chess::PGN::Parse> on CPAN by Giuseppe Maxia
+
+
+=head2 The perl-chess mailing list:
 
    perl-chess-subscribe@yahoogroups.com
 
